@@ -97,9 +97,9 @@ export async function fetchUserPosts(userId: string) {
 
 export async function fetchUsers({
   userId,
+  searchStr = "",
   pageNumber = 1,
   pageSize = 10,
-  searchStr = "",
   sortBy = "desc",
 }: FetchUsersParams) {
   try {
