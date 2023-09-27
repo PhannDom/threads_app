@@ -44,7 +44,6 @@ async function Page({ params }: { params: { id: string } }) {
 
                 {tab.label === "Threads" && (
                   <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
-                    import UserCard from "@/components/cards/UserCard";
                     {communityDetails.threads.length}
                   </p>
                 )}
