@@ -70,15 +70,15 @@ export const POST = async (request: Request) => {
 
     try {
       // @ts-ignore
-      await createCommunity({
+      await createCommunity(
         // @ts-ignore
-        id: id,
-        name: name.toString(),
-        username: slug.toString(),
-        image: logo_url.toString() || image_url.toString(),
-        bio: "org bio",
-        createdById: created_by.toString(),
-      });
+        id,
+        name,
+        slug,
+        logo_url || image_url,
+        "org bio",
+        created_by
+      );
 
       return NextResponse.json({ message: "User created" }, { status: 201 });
     } catch (err) {

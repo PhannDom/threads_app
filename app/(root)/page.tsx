@@ -20,7 +20,7 @@ async function Home({
 
   const result = await fetchPosts(
     searchParams.page ? +searchParams.page : 1,
-    2
+    20
   );
 
   return (
