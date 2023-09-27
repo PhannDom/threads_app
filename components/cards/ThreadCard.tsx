@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { formatDateString } from "@/lib/utils";
+import DeleteThread from "../forms/DeleteThread";
 
 interface Props {
   id: string;
@@ -27,18 +28,17 @@ interface Props {
   isComment?: boolean;
 }
 
-function ThreadCard(props: Props) {
-  const {
-    id,
-    content,
-    currentUserId,
-    parentId,
-    author,
-    community,
-    createdAt,
-    comments,
-    isComment,
-  } = props;
+function ThreadCard({
+  id,
+  currentUserId,
+  parentId,
+  content,
+  author,
+  community,
+  createdAt,
+  comments,
+  isComment,
+}: Props) {
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
@@ -113,9 +113,17 @@ function ThreadCard(props: Props) {
             </div>
           </div>
         </div>
+
+        <DeleteThread
+          threadId={JSON.stringify(id)}
+          currentUserId={currentUserId}
+          authorId={author.id}
+          parentId={parentId}
+          isComment={isComment}
+        />
       </div>
 
-      {!isComment && comments?.length > 0 && (
+      {!isComment && comments.length > 0 && (
         <div className="ml-1 mt-3 flex items-center gap-2">
           {comments.slice(0, 2).map((comment, index) => (
             <Image

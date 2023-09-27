@@ -19,9 +19,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-import { UserValidation } from "@/lib/validations/user";
-import { isBase64Image } from "@/lib/utils";
 import { useUploadThing } from "@/lib/uploadthing";
+import { isBase64Image } from "@/lib/utils";
+
+import { UserValidation } from "@/lib/validations/user";
 import { updateUser } from "@/lib/actions/user.actions";
 
 interface Props {
@@ -39,10 +40,9 @@ interface Props {
 const AccountProfile = ({ user, btnTitle }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { startUpload } = useUploadThing("media");
 
   const [files, setFiles] = useState<File[]>([]);
-
-  const { startUpload } = useUploadThing("media");
 
   const form = useForm<z.infer<typeof UserValidation>>({
     resolver: zodResolver(UserValidation),
@@ -58,7 +58,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const blob = values.profile_photo;
 
     const hasImageChanged = isBase64Image(blob);
-
     if (hasImageChanged) {
       const imgRes = await startUpload(files);
 
@@ -68,12 +67,12 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
 
     await updateUser({
-      username: values.username,
       name: values.name,
+      path: pathname,
+      username: values.username,
+      userId: user.id,
       bio: values.bio,
       image: values.profile_photo,
-      userId: user.id,
-      path: pathname,
     });
 
     if (pathname === "/profile/edit") {

@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { redirect, usePathname } from "next/navigation";
+import { redirect } from "next/navigation";
 
-import { sidebarLinks } from "@/constants";
+import { fetchCommunityPosts } from "@/lib/actions/community.actions";
 import { fetchUserPosts } from "@/lib/actions/user.actions";
+
 import ThreadCard from "../cards/ThreadCard";
 
 interface Result {
@@ -41,7 +40,12 @@ interface Props {
 
 async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
   let result: Result;
-  result = await fetchUserPosts(accountId);
+
+  if (accountType === "Community") {
+    result = await fetchCommunityPosts(accountId);
+  } else {
+    result = await fetchUserPosts(accountId);
+  }
 
   if (!result) {
     redirect("/");
@@ -58,18 +62,18 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
           content={thread.text}
           author={
             accountType === "User"
-              ? {
-                  name: result.name,
-                  image: result.image,
-                  id: result.id,
-                }
+              ? { name: result.name, image: result.image, id: result.id }
               : {
                   name: thread.author.name,
                   image: thread.author.image,
                   id: thread.author.id,
                 }
           }
-          community={null}
+          community={
+            accountType === "Community"
+              ? { name: result.name, id: result.id, image: result.image }
+              : thread.community
+          }
           createdAt={thread.createdAt}
           comments={thread.children}
         />

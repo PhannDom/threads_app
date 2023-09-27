@@ -17,8 +17,8 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
-import { CommentValidation } from "@/lib/validations/comment";
 import { addCommentToThread } from "@/lib/actions/thread.actions";
+import { CommentValidation } from "@/lib/validations/comment";
 
 interface Props {
   threadId: string;
@@ -81,8 +81,6 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
         </Button>
       </form>
     </Form>
-
-    
   );
 }
 
