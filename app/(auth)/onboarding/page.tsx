@@ -7,9 +7,11 @@ import { fetchUser } from "@/lib/actions/user.actions";
 
 async function Page() {
   const user = await currentUser();
+  console.log("🚀 ~ file: page.tsx:10 ~ Page ~ user:", user);
   if (!user) return null;
 
   const userInfo = await fetchUser(user.id);
+  console.log("🚀 ~ file: page.tsx:14 ~ Page ~ userInfo:", userInfo);
   if (userInfo?.onboarded) redirect("/");
 
   const userData = {
