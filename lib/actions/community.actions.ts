@@ -140,7 +140,7 @@ export async function fetchCommunities(props: CommunitiesProps) {
     // If the search string is not empty, add the $or operator to match either username or name fields.
 
     if (searchString.trim() !== "") {
-      query.Sor = [
+      query.$or = [
         {
           username: { $regex: regex },
         },

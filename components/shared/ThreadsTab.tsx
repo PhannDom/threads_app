@@ -42,7 +42,6 @@ interface Props {
 async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
   let result: Result;
   result = await fetchUserPosts(accountId);
-  console.log("🚀 ~ file: ThreadsTab.tsx:20 ~ ThreadsTab ~ result:", result);
 
   if (!result) {
     redirect("/");

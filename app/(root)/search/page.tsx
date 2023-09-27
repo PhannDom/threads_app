@@ -20,11 +20,10 @@ async function Page({
   // Fetch users
   const result = await fetchUsers({
     userId: user.id,
-    searchStr: searchParams.q,
+    searchString: searchParams.q,
     pageNumber: searchParams?.page ? +searchParams.page : 1,
     pageSize: 25,
   });
-  console.log("🚀 ~ file: page.tsx:25 ~ result:", result);
 
   return (
     <section>

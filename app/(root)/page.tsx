@@ -1,5 +1,4 @@
 import { currentUser } from "@clerk/nextjs";
-
 import { redirect } from "next/navigation";
 
 import ThreadCard from "@/components/cards/ThreadCard";
@@ -8,7 +7,7 @@ import Pagination from "@/components/shared/Pagination";
 import { fetchPosts } from "@/lib/actions/thread.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
 
-export default async function Home({
+async function Home({
   searchParams,
 }: {
   searchParams: { [key: string]: string | undefined };
@@ -37,7 +36,7 @@ export default async function Home({
               <ThreadCard
                 key={post._id}
                 id={post._id}
-                currentUserId={user?.id ?? ""}
+                currentUserId={user.id}
                 parentId={post.parentId}
                 content={post.text}
                 author={post.author}
@@ -58,3 +57,5 @@ export default async function Home({
     </>
   );
 }
+
+export default Home;
