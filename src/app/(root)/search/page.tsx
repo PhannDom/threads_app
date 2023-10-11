@@ -1,13 +1,13 @@
-import Searchbar from "@/components/shared/app/Searchbar";
-import PageLayout from "@/components/shared/layout/PageLayout";
+import Searchbar from "@/shared/app/Searchbar";
+import PageLayout from "@/shared/layout/PageLayout";
 
 import { Box, Typography } from "@mui/material";
 
 import { Suspense } from "react";
 
 import FilterSection from "./components/FilterSection";
-import SkeletonUserCardList from "@/components/shared/card/SkeletonUserCardList";
-import SkeletonUserCard from "@/components/shared/card/SkeletonUserCard";
+import SkeletonUserCardList from "@/shared/card/SkeletonUserCardList";
+import SkeletonUserCard from "@/shared/card/SkeletonUserCard";
 
 function Page({
   searchParams,
@@ -25,8 +25,8 @@ function Page({
         <Box sx={{ mt: "1.25rem" }}>
           <Searchbar routeType="search" />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 4, mt: 3 }}>
-          <div key={Math.random()}>
+        <div key={Math.random().toString()}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 4, mt: 3 }}>
             <Suspense
               fallback={
                 <SkeletonUserCardList
@@ -37,8 +37,8 @@ function Page({
             >
               <FilterSection searchParams={searchParams} />
             </Suspense>
-          </div>
-        </Box>
+          </Box>
+        </div>
       </Box>
     </PageLayout>
   );

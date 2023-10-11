@@ -2,9 +2,9 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { fetchUser } from "@/lib/actions/user.actions";
-import PageLayout from "@/components/shared/layout/PageLayout";
+import PageLayout from "@/shared/layout/PageLayout";
 import { Box, Typography } from "@mui/material";
-import PostThread from "@/components/shared/form/PostThread";
+import PostThread from "@/shared/form/PostThread";
 
 async function Page() {
   const userId = "user_2VKghV81xrggTVp4z6ErKJq5hFa";

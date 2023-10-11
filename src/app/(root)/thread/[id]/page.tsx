@@ -1,6 +1,5 @@
-import Comment from "@/components/forms/Comment";
-import ThreadCard from "@/components/shared/card/ThreadCard";
-import PageLayout from "@/components/shared/layout/PageLayout";
+import ThreadCard from "@/shared/card/ThreadCard";
+import PageLayout from "@/shared/layout/PageLayout";
 import { fetchThreadById } from "@/lib/actions/thread.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
@@ -35,14 +34,6 @@ async function Page({ params }: { params: { id: string } }) {
           createdAt={thread.createdAt}
           comments={thread.children}
         />
-
-        <Box sx={{ mt: "1.75rem" }}>
-          <Comment
-            threadId={params.id}
-            currentUserImg={userInfo.image}
-            currentUserId={JSON.stringify(userInfo._id)}
-          />
-        </Box>
 
         <Box sx={{ mt: "2.5rem" }}>
           {thread.children.map((childItem: any) => (

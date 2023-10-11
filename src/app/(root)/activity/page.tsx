@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { fetchUser, getActivities } from "@/lib/actions/user.actions";
-import PageLayout from "@/components/shared/layout/PageLayout";
+import PageLayout from "@/shared/layout/PageLayout";
 import { Box, Typography } from "@mui/material";
 
 async function Page() {

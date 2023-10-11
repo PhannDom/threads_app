@@ -1,8 +1,8 @@
-import PageLayout from "@/components/shared/layout/PageLayout";
+import PageLayout from "@/shared/layout/PageLayout";
 import HomePage from "./components/HomePage";
 import { Suspense } from "react";
-import SkeletonUserCardList from "@/components/shared/card/SkeletonUserCardList";
-import SkeletonUserCard from "@/components/shared/card/SkeletonUserCard";
+import SkeletonUserCardList from "@/shared/card/SkeletonUserCardList";
+import SkeletonUserCard from "@/shared/card/SkeletonUserCard";
 import { Box, Typography } from "@mui/material";
 
 function Home({

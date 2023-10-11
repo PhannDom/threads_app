@@ -1,4 +1,4 @@
-import UserCard from "@/components/shared/card/UseCard";
+import UserCard from "@/shared/card/UseCard";
 import { fetchUsers } from "@/lib/actions/user.actions";
 import { Typography } from "@mui/material";
 

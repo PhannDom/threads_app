@@ -1,4 +1,4 @@
-import CommunityCard from "@/components/shared/card/CommunityCard";
+import CommunityCard from "@/shared/card/CommunityCard";
 import { fetchCommunities } from "@/lib/actions/community.actions";
 import { Box, Typography } from "@mui/material";
 

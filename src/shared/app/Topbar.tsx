@@ -12,7 +12,7 @@ import {
 
 import { useColorScheme } from "@mui/material/styles";
 
-import { Brightness4, Brightness7 } from "@mui/icons-material";
+// import { Brightness4, Brightness7 } from "@mui/icons-material";
 import LogoIcon from "../common/LogoIcon";
 
 const Topbar = () => {
@@ -42,13 +42,17 @@ const Topbar = () => {
         <Typography variant="h5" sx={{ flexGrow: 1, fontWeight: "bold" }}>
           Threads
         </Typography>
-        <Button color="inherit" variant="outlined" sx={{ borderRadius: "1em" }}>
+        <Button
+          color="inherit"
+          variant="outlined"
+          sx={{ borderRadius: "1rem" }}
+        >
           Sign In
         </Button>
 
-        <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
+        {/* <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
           {mode === "dark" ? <Brightness7 /> : <Brightness4 />}
-        </IconButton>
+        </IconButton> */}
       </Toolbar>
     </AppBar>
   );

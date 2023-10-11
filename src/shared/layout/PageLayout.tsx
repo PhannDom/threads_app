@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container } from "@mui/material";
-import Topbar from "@/components/shared/app/Topbar";
+import Topbar from "../app/Topbar";
 import LeftSideBar from "../app/LeftSideBar";
 
 type Props = {

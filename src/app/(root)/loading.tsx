@@ -1,4 +1,4 @@
-import BackdropLoading from "@/components/shared/common/BackdropLoading";
+import BackdropLoading from "@/shared/common/BackdropLoading";
 
 const Loading = () => {
   return <BackdropLoading />;

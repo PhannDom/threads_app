@@ -5,6 +5,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import replyIcon from "@/assets/reply.svg";
+import membersIcon from "@/assets/members.svg";
+import tagIcon from "@/assets/tag.svg";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -66,27 +69,48 @@ export default function CustomTab({ tabs, children }: CustomTabProps) {
           onChange={handleChange}
           aria-label="basic-tabs"
         >
-          {tabs.map((tab) => (
-            <Tab
-              icon={
-                <Image
-                  src={tab.icon}
-                  alt="logo"
-                  width={24}
-                  height={24}
-                  className="object-contain"
-                />
-              }
-              iconPosition="start"
-              label={tab.label}
-              {...a11yProps(tab.id)}
-            />
-          ))}
+          {tabs.map((tab) => {
+            let imageUrl = "";
+            switch (tab.label) {
+              case "Threads":
+                imageUrl = replyIcon;
+                break;
+              case "Replies":
+              case "Members":
+                imageUrl = membersIcon;
+                break;
+              case "Tagged":
+              case "Requests":
+                imageUrl = tagIcon;
+                break;
+              default:
+                break;
+            }
+
+            return (
+              <Tab
+                key={tab.id}
+                icon={
+                  <Image
+                    src={imageUrl}
+                    alt="logo"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                }
+                iconPosition="start"
+                label={tab.label}
+                {...a11yProps(tab.id)}
+              />
+            );
+          })}
         </Tabs>
       </Box>
       {tabs.map((tab) => (
         <CustomTabPanel key={tab.id} value={value} index={tab.id}>
-          {children}
+          {/* Fix bug ReactNode, need to wrap with fragment */}
+          <>{children}</>
         </CustomTabPanel>
       ))}
     </Box>

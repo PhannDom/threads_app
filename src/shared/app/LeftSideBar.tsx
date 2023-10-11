@@ -15,6 +15,12 @@ import Image from "next/image";
 
 import { sidebarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
+import homeIcon from "@/assets/home.svg";
+import searchIcon from "@/assets/search.svg";
+import heartIcon from "@/assets/heart.svg";
+import createIcon from "@/assets/create.svg";
+import communityIcon from "@/assets/community.svg";
+import userIcon from "@/assets/user.svg";
 
 const LeftSideBar = () => {
   const pathname = usePathname();
@@ -38,6 +44,30 @@ const LeftSideBar = () => {
       <Divider />
       <List>
         {sidebarLinks.map((link) => {
+          let imageUrl = "";
+          switch (link.label) {
+            case "Home":
+              imageUrl = homeIcon;
+              break;
+            case "Search":
+              imageUrl = searchIcon;
+              break;
+            case "Activity":
+              imageUrl = heartIcon;
+              break;
+            case "Create Thread":
+              imageUrl = createIcon;
+              break;
+            case "Communities":
+              imageUrl = communityIcon;
+              break;
+            case "Profile":
+              imageUrl = userIcon;
+              break;
+            default:
+              break;
+          }
+
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
             pathname === link.route;
@@ -70,7 +100,7 @@ const LeftSideBar = () => {
                     }}
                   >
                     <Image
-                      src={link.imgURL}
+                      src={imageUrl}
                       alt={link.label}
                       width={24}
                       height={24}

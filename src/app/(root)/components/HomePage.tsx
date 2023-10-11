@@ -1,4 +1,4 @@
-import ThreadCard from "@/components/shared/card/ThreadCard";
+import ThreadCard from "@/shared/card/ThreadCard";
 import { fetchPosts } from "@/lib/actions/thread.actions";
 import { Box } from "@mui/material";
 

@@ -1,11 +1,11 @@
 import { communityTabs } from "@/constants";
 
 import { fetchCommunityDetails } from "@/lib/actions/community.actions";
-import ProfileHeader from "@/components/shared/app/ProfileHeader";
-import PageLayout from "@/components/shared/layout/PageLayout";
+import ProfileHeader from "@/shared/app/ProfileHeader";
+import PageLayout from "@/shared/layout/PageLayout";
 import { Box } from "@mui/material";
-import CustomTab from "@/components/shared/tab/CustomTab";
-import ThreadsTab from "@/components/shared/tab/ThreadsTab";
+import CustomTab from "@/shared/tab/CustomTab";
+import ThreadsTab from "@/shared/tab/ThreadsTab";
 
 async function Page({ params }: { params: { id: string } }) {
   const communityDetails = await fetchCommunityDetails(params.id);

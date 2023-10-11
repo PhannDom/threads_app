@@ -1,11 +1,11 @@
 import { fetchUser } from "@/lib/actions/user.actions";
 
 import { profileTabs } from "@/constants";
-import ProfileHeader from "@/components/shared/app/ProfileHeader";
+import ProfileHeader from "@/shared/app/ProfileHeader";
 import { Box } from "@mui/material";
-import PageLayout from "@/components/shared/layout/PageLayout";
-import CustomTab from "@/components/shared/tab/CustomTab";
-import ThreadsTab from "@/components/shared/tab/ThreadsTab";
+import PageLayout from "@/shared/layout/PageLayout";
+import CustomTab from "@/shared/tab/CustomTab";
+import ThreadsTab from "@/shared/tab/ThreadsTab";
 
 async function Page({ params }: { params: { id: string } }) {
   // const user = await currentUser();

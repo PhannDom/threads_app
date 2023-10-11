@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
-  Avatar,
   Box,
   Card,
   CardActions,
@@ -52,7 +51,6 @@ function ThreadCard({
   comments,
   isComment,
 }: Props) {
-  console.log("🚀 ~ file: ThreadCard.tsx:55 ~ comments:", comments);
   return (
     <>
       <Card sx={{ maxWidth: "100%", borderRadius: 2 }}>

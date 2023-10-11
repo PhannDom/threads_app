@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import App from "@/components/shared/app/App";
+import App from "@/shared/app/App";
 
 export const metadata: Metadata = {
   title: "Threads",

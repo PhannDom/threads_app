@@ -7,9 +7,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useUploadThing } from "@/lib/uploadthing";
-import { isBase64Image } from "@/lib/utils";
-
 import { UserValidation } from "@/lib/validations/user";
 import { updateUser } from "@/lib/actions/user.actions";
 import {
@@ -27,6 +24,7 @@ import {
 
 import { styled } from "@mui/material/styles";
 import { FileUploadOutlined } from "@mui/icons-material";
+import { isBase64Image, useUploadThing } from "@/lib/utils";
 
 const Input = styled("input")({
   display: "none",
